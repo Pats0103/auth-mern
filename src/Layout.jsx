@@ -2,13 +2,15 @@ import React from 'react'
 import {Outlet} from 'react-router-dom'
 import Header from './components/Header'
 
-function layout() {
+function Layout() {
   return (
     <>
     <Header />
     <Outlet />
-    </>
+    
+</>
+    
   )
 }
 
-export default layout
+export default Layout
