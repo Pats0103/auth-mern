@@ -14,11 +14,12 @@ function App() {
     )
   )
   return (
-    <>
+    <div className="flex justify-center">
+
+    <div className="w-[70%]">
       <RouterProvider router={router}/>
-        
-      
-    </>
+    </div>
+    </div>
   )
 }
 
