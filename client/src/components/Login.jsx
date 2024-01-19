@@ -8,7 +8,7 @@ function Login() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post("/api/auth/login", {
+    await axios.post("/api/v1/users/register", {
       username,
       password,
     });
