@@ -2,7 +2,7 @@
 import{ createBrowserRouter,RouterProvider,Route,createRoutesFromElements } from "react-router-dom"
 import Layout from "./Layout"
 import  PageNotFound  from "./components/PageNotFound"
-import Login from "./components/Login"
+import Register from "./components/Register"
 import axios from 'axios';
 
 
@@ -14,7 +14,7 @@ function App() {
     createRoutesFromElements(
       <>
       <Route path="/" element={<Layout />} >
-          <Route path="login" element={<Login/>}/>
+          <Route path="register" element={<Register/>}/>
        </Route>
       <Route path="*" element={<PageNotFound/>}/>
       </>
