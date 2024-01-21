@@ -4,6 +4,7 @@ import Layout from "./Layout"
 import  PageNotFound  from "./components/PageNotFound"
 import Register from "./components/Register"
 import axios from 'axios';
+import Login from "./components/Login";
 
 
 axios.defaults.baseURL = `http://localhost:${import.meta.env.VITE_BACKEND_PORT || 5000}`;
@@ -15,6 +16,8 @@ function App() {
       <>
       <Route path="/" element={<Layout />} >
           <Route path="register" element={<Register/>}/>
+          <Route path="login" element={<Login/>}/>
+
        </Route>
       <Route path="*" element={<PageNotFound/>}/>
       </>

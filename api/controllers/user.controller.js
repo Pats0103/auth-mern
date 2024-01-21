@@ -29,23 +29,23 @@ const registerUser = asyncHandler(async (req, res) => {
   return res.status(201).json(new ApiResponse(201, "User created", restUser));
 });
 
-const loginUser = asyncHandler(async (req, res) => {
+const loginUser = asyncHandler(async (req, res,next) => {
   const { email, password } = req.body;
 
   if (!(email || password)) {
-    throw new ApiError(400, "Username and password are required");
+   return res.status(400).json(ApiError(400, "Username and password are required"))
   }
 
   const user = await User.findOne({ email });
 
   if (!user) {
-    throw new ApiError(404, "Invalid password & email");
+    throw new  ApiError(404, "Invalid password & email");
   }
 
   const isMatch = bcryptjs.compareSync(password, user.password);
 
   if (!isMatch) {
-    throw new ApiError(401, "Invalid password & email");
+    throw new  ApiError(401, "Invalid password and email");
   }
 
   const { password: hashedPassword, ...restUser } = user._doc;

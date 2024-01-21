@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [email,setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
@@ -13,20 +13,19 @@ function Register() {
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await axios.post("/api/v1/users/register", {
-      username,
-      email,
-      password,
-    }).then((res) => {
-      console.log(res);
-      
-      
-    }
-    ).catch((err) => {
-      setError(err);
-      console.log(err);
-    }
-    );
+    await axios
+      .post("/api/v1/users/register", {
+        username,
+        email,
+        password,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        setError(err);
+        console.log(err);
+      });
     setLoading(false);
   };
 
@@ -62,12 +61,17 @@ function Register() {
             />
           </div>
           <div>
-            <button disabled={loading} className="border rounded-lg w-full  px-2 py-1 ring-2 ring-blue-300 hover:ring-blue-600 my-1">
+            <button
+              disabled={loading}
+              className="border rounded-lg w-full  px-2 py-1 ring-2 ring-blue-300 hover:ring-blue-600 my-1"
+            >
               {loading ? "Loading..." : "Register"}
             </button>
           </div>
           <div>
-            <Link className="text-violet-500" to="/login">alreay register..?</Link>
+            <Link className="text-violet-500" to="/login">
+              alreay register..?
+            </Link>
           </div>
           <div>
             {error && <p className="text-red-500">something went wrong...</p>}
